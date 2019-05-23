@@ -2,7 +2,7 @@
 
 This is a test application created to test how the [[http://ops4j.github.io/pax/web/SNAPSHOT/User-Guide.html#whiteboard-extender][Pax Web Whiteboard Extender]] handles overapping paths from two servlets exposed by two different DS components.
 
-The webapp servlet will install on /overlaptest/ and the REST service servlet will install on /overlaptest/api/testservice
+The webapp servlet will install on /overlap/ and the REST service servlet will install on /overlap/api/testservice
 
 ** Status
 
@@ -24,7 +24,7 @@ This is how to build and install the servlet:
       feature:install webapi
       feature:install webgui
     #+END_EXAMPLE
- 3. After this, the servlet will be listening for POST requests, at the local path "/overlaptest/api/testservice" on the karaf web server, e.g. http://localhost:8181/overlaptest for a karaf server started locally, with default settings
+ 3. After this, the servlet will be listening for POST requests, at the local path "/overlap/api/testservice" on the karaf web server, e.g. http://localhost:8181/overlap for a karaf server started locally, with default settings
 
 ** To uninstall the counter servlet from karaf
 
