@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Steinar Bang
+ * Copyright 2018-2021 Steinar Bang
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
  */
 package no.priv.bang.demos.whiteboardwebapi.webapi;
 
-import static org.junit.Assert.*;
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.io.ByteArrayOutputStream;
@@ -27,9 +27,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.junit.Test;
-import org.mockito.Matchers;
-
+import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import no.priv.bang.demos.whiteboardwebapi.webapi.Count;
@@ -37,11 +35,11 @@ import no.priv.bang.demos.whiteboardwebapi.webapi.CounterServiceServlet;
 import no.priv.bang.demos.whiteboardwebapi.webapi.mocks.MockHttpServletResponse;
 import no.priv.bang.demos.whiteboardwebapi.webapi.mocks.MockLogService;
 
-public class CounterServiceServletTest {
+class CounterServiceServletTest {
     static final ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void testDoGet() throws ServletException, IOException {
+    void testDoGet() throws ServletException, IOException {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
@@ -62,7 +60,7 @@ public class CounterServiceServletTest {
     }
 
     @Test
-    public void testDoGetAfterCounterIncrement() throws ServletException, IOException {
+    void testDoGetAfterCounterIncrement() throws ServletException, IOException {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
@@ -92,14 +90,14 @@ public class CounterServiceServletTest {
     }
 
     @Test
-    public void testDoGetWithError() throws ServletException, IOException {
+    void testDoGetWithError() throws ServletException, IOException {
         MockLogService logservice = new MockLogService();
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
         when(request.getRequestURI()).thenReturn("http://localhost:8181/hello");
         MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
         PrintWriter writer = mock(PrintWriter.class);
-        doThrow(IOException.class).when(writer).write(Matchers.<char[]>any(), anyInt(), anyInt());
+        doThrow(RuntimeException.class).when(writer).write(isA(char[].class), anyInt(), anyInt());
         when(response.getWriter()).thenReturn(writer);
 
         CounterServiceServlet servlet = new CounterServiceServlet();
