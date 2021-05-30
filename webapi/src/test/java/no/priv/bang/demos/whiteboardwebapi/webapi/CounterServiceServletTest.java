@@ -32,7 +32,7 @@ import com.mockrunner.mock.web.MockHttpServletResponse;
 
 import no.priv.bang.demos.whiteboardwebapi.webapi.Count;
 import no.priv.bang.demos.whiteboardwebapi.webapi.CounterServiceServlet;
-import no.priv.bang.demos.whiteboardwebapi.webapi.mocks.MockLogService;
+import no.priv.bang.osgi.service.mocks.logservice.MockLogService;
 
 class CounterServiceServletTest {
     static final ObjectMapper mapper = new ObjectMapper();
