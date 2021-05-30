@@ -19,7 +19,6 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -29,10 +28,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.junit.jupiter.api.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mockrunner.mock.web.MockHttpServletResponse;
 
 import no.priv.bang.demos.whiteboardwebapi.webapi.Count;
 import no.priv.bang.demos.whiteboardwebapi.webapi.CounterServiceServlet;
-import no.priv.bang.demos.whiteboardwebapi.webapi.mocks.MockHttpServletResponse;
 import no.priv.bang.demos.whiteboardwebapi.webapi.mocks.MockLogService;
 
 class CounterServiceServletTest {
@@ -44,7 +43,7 @@ class CounterServiceServletTest {
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
         when(request.getRequestURI()).thenReturn("http://localhost:8181/hello");
-        MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
+        MockHttpServletResponse response = new MockHttpServletResponse();
 
         CounterServiceServlet servlet = new CounterServiceServlet();
         servlet.setLogservice(logservice);
@@ -53,9 +52,9 @@ class CounterServiceServletTest {
 
         assertEquals("application/json", response.getContentType());
         assertEquals(200, response.getStatus());
-        ByteArrayOutputStream responseBody = response.getOutput();
-        assertThat(response.getOutput().size()).isGreaterThan(0);
-        Count counter = mapper.readValue(responseBody.toByteArray(), Count.class);
+        byte[] responseBody = response.getOutputStreamBinaryContent();
+        assertThat(responseBody).isNotEmpty();
+        Count counter = mapper.readValue(responseBody, Count.class);
         assertEquals(0, counter.getCount());
     }
 
@@ -65,7 +64,7 @@ class CounterServiceServletTest {
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
         when(request.getRequestURI()).thenReturn("http://localhost:8181/hello");
-        MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
+        MockHttpServletResponse response = new MockHttpServletResponse();
 
         CounterServiceServlet servlet = new CounterServiceServlet();
         servlet.setLogservice(logservice);
@@ -74,8 +73,7 @@ class CounterServiceServletTest {
         HttpServletRequest postToIncrementCounter = mock(HttpServletRequest.class);
         when(postToIncrementCounter.getMethod()).thenReturn("POST");
         when(postToIncrementCounter.getRequestURI()).thenReturn("http://localhost:8181/hello");
-        HttpServletResponse postResponse = mock(HttpServletResponse.class);
-        when(postResponse.getWriter()).thenReturn(mock(PrintWriter.class));
+        HttpServletResponse postResponse = new MockHttpServletResponse();
         servlet.service(postToIncrementCounter, postResponse);
         servlet.service(postToIncrementCounter, postResponse);
 
@@ -83,9 +81,9 @@ class CounterServiceServletTest {
 
         assertEquals("application/json", response.getContentType());
         assertEquals(200, response.getStatus());
-        ByteArrayOutputStream responseBody = response.getOutput();
-        assertThat(response.getOutput().size()).isGreaterThan(0);
-        Count counter = mapper.readValue(responseBody.toByteArray(), Count.class);
+        byte[] responseBody = response.getOutputStreamBinaryContent();
+        assertThat(responseBody).isNotEmpty();
+        Count counter = mapper.readValue(responseBody, Count.class);
         assertEquals(2, counter.getCount());
     }
 
@@ -95,7 +93,7 @@ class CounterServiceServletTest {
         HttpServletRequest request = mock(HttpServletRequest.class);
         when(request.getMethod()).thenReturn("GET");
         when(request.getRequestURI()).thenReturn("http://localhost:8181/hello");
-        MockHttpServletResponse response = mock(MockHttpServletResponse.class, CALLS_REAL_METHODS);
+        MockHttpServletResponse response = spy(new MockHttpServletResponse());
         PrintWriter writer = mock(PrintWriter.class);
         doThrow(RuntimeException.class).when(writer).write(isA(char[].class), anyInt(), anyInt());
         when(response.getWriter()).thenReturn(writer);
@@ -106,6 +104,6 @@ class CounterServiceServletTest {
         servlet.service(request, response);
 
         assertEquals(500, response.getStatus());
-        assertEquals(0, response.getOutput().size());
+        assertEquals(0, response.getOutputStreamBinaryContent().length);
     }
 }
