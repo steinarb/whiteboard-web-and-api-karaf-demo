@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 Steinar Bang
+ * Copyright 2018-2021 Steinar Bang
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,18 +30,18 @@ import org.osgi.service.log.LogService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import no.priv.bang.osgi.service.adapters.logservice.LogServiceAdapter;
+import no.priv.bang.osgi.service.adapters.logservice.LoggerAdapter;
 
 @Component(service={Servlet.class}, property={"alias=/overlap/api/counter"} )
 public class CounterServiceServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private final LogServiceAdapter logservice = new LogServiceAdapter();
+    private final LoggerAdapter logger = new LoggerAdapter(getClass());
     private AtomicInteger counter = new AtomicInteger(); // NOSONAR This is just a demo
     static final ObjectMapper mapper = new ObjectMapper();
 
     @Reference
     public void setLogservice(LogService logservice) {
-        this.logservice.setLogService(logservice);
+        this.logger.setLogService(logservice);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class CounterServiceServlet extends HttpServlet {
 
         } catch (Exception e) {
             String message = String.format("Counter REST service caught exception during %s", request.getMethod());
-            logservice.log(LogService.LOG_ERROR, message, e);
+            logger.error(message, e);
             response.setStatus(500); // Report internal server error
         }
     }
