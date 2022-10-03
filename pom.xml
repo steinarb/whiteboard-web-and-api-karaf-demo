@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018-2021 Steinar Bang                                                -->
+<!-- Copyright 2018-2022 Steinar Bang                                                -->
 <!--                                                                                 -->
 <!-- Licensed under the Apache License, Version 2.0 (the "License");                 -->
 <!-- you may not use this file except in compliance with the License.                -->
@@ -231,9 +231,9 @@
                     </dependency>
                 </dependencies>
                 <configuration>
-                    <coberturaReports>
+                    <jacocoReports>
                         <jacocoReport>${project.basedir}/jacoco-coverage-report/target/site/jacoco-aggregate/jacoco.xml</jacocoReport>
-                    </coberturaReports>
+                    </jacocoReports>
                 </configuration>
             </plugin>
             <plugin>
