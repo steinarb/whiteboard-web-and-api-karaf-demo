@@ -6,14 +6,23 @@ The webapp servlet will install on /overlap/ and the REST service servlet will i
 
 ** Status
 
-[[https://travis-ci.org/steinarb/whiteboard-web-and-api-karaf-demo][file:https://travis-ci.org/steinarb/whiteboard-web-and-api-karaf-demo.svg?branch=master]] [[https://coveralls.io/r/steinarb/whiteboard-web-and-api-karaf-demo][file:https://coveralls.io/repos/steinarb/whiteboard-web-and-api-karaf-demo/badge.svg]] [[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos.whiteboardwebapi/whiteboard-web-and-api-karaf-demo][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos.whiteboardwebapi/whiteboard-web-and-api-karaf-demo/badge.svg]]
+[[https://github.com/steinarb/whiteboard-web-and-api-karaf-demo/actions/workflows/whiteboard-web-and-api-karaf-demo-maven-ci-build.yml][file:https://github.com/steinarb/whiteboard-web-and-api-karaf-demo/actions/workflows/whiteboard-web-and-api-karaf-demo-maven-ci-build.yml/badge.svg]]
+[[https://coveralls.io/github/steinarb/whiteboard-web-and-api-karaf-demo][https://coveralls.io/repos/github/steinarb/whiteboard-web-and-api-karaf-demo/badge.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=alert_status#.svg]]
+[[https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos.whiteboardwebapi/whiteboard-web-and-api-karaf-demo][file:https://maven-badges.herokuapp.com/maven-central/no.priv.bang.demos.whiteboardwebapi/whiteboard-web-and-api-karaf-demo/badge.svg]]
 
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/images/project_badges/sonarcloud-white.svg]]
 
-*** SonarCloud
-
-[[https://sonarcloud.io/dashboard/index/no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo&metric=ncloc#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo&metric=bugs#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo&metric=vulnerabilities#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo&metric=code_smells#.svg]] [[https://sonarcloud.io/dashboard/index/no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=no.priv.bang.demos.whiteboardwebapi%3Awhiteboard-web-and-api-karaf-demo&metric=coverage#.svg]]
-
-
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=sqale_index#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=coverage#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=ncloc#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=code_smells#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=sqale_rating#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=security_rating#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=bugs#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=vulnerabilities#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=duplicated_lines_density#.svg]]
+[[https://sonarcloud.io/summary/new_code?id=steinarb_whiteboard-web-and-api-karaf-demo][file:https://sonarcloud.io/api/project_badges/measure?project=steinarb_whiteboard-web-and-api-karaf-demo&metric=reliability_rating#.svg]]
 ** How to install
 
 This is how to build and install the servlet:
