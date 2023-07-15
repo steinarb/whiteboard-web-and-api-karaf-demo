@@ -1,5 +1,5 @@
 /*
- * Copyright 2018-2021 Steinar Bang
+ * Copyright 2018-2023 Steinar Bang
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,11 +26,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletName;
+import org.osgi.service.http.whiteboard.propertytypes.HttpWhiteboardServletPattern;
 import org.osgi.service.log.LogService;
 
 import no.priv.bang.osgi.service.adapters.logservice.LoggerAdapter;
 
-@Component(service={Servlet.class}, property={"alias=/overlap"} )
+@Component(service={Servlet.class})
+@HttpWhiteboardServletPattern("/overlap/*")
+@HttpWhiteboardServletName("overlap")
 public class CounterDisplay extends HttpServlet {
     private static final long serialVersionUID = 8151853019014154334L;
     private final LoggerAdapter logger = new LoggerAdapter(getClass());
