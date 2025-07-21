@@ -30,7 +30,7 @@
         <osgi-service-adaptors.version>1.2.0</osgi-service-adaptors.version>
         <jackson.version>2.19.1</jackson.version>
         <jackson.databind.version>${jackson.version}</jackson.databind.version>
-        <junit.jupiter.version>5.13.3</junit.jupiter.version>
+        <junit.jupiter.version>5.13.4</junit.jupiter.version>
         <assertj.version>3.27.3</assertj.version>
         <mockito.version>5.18.0</mockito.version>
         <mockrunner.version>2.0.7</mockrunner.version>
